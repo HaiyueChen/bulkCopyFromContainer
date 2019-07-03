@@ -1,3 +1,10 @@
+##################################
+##################################
+
+$sas = "<Insert SAS KEY>"
+##################################
+##################################
+
 function Get-Azcopy {
     param([string]$currentPath)
 
@@ -87,15 +94,6 @@ function Get-Download-Name-From-Azure-Path {
 ######################################
 # Script start
 
-
-######################################
-######################################
-######################################
-$sas = "<Insert SAS KEY>"
-######################################
-######################################
-######################################
-
 $currentLocation = Get-Location
 Write-Host "`r`n Script running at: " $currentLocation "`r`n"
 
@@ -130,6 +128,7 @@ $downloadName = Get-Download-Name-From-Azure-Path $azurePath
 $downloadPath = "$downloadFolder\$downloadName"
 $containerPath = "$downloadFolder\$containerName"
 Write-Host "Renaming $downloadPath to $containerPath"
+Write-Host "`r`nYour container is downloaded to: $containerPath" 
 Rename-Item -path $downloadPath -newName $containerPath
 
 Remove-Item "azcopy.exe"
