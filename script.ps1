@@ -45,22 +45,21 @@ if ($azurePath.Contains("/")) {
     $splitted = $azurePath.split("{/}")
     $containerName = $splitted[0].Substring(0, $splitted[0].Length - $guidLength)
     for ($i = 1; $i -lt $splitted.Count; $i++) {
-        $containerName += "/" + $splitted[$i]
+        $containerName += "-" + $splitted[$i]
     }
     $downloadName = $splitted[$splitted.Count - 1]
-    Write-Host $containerName
 }
 else{
     $containerName = $azurePath.Substring(0, $azurePath.Length - $guidLength)
     $downloadName = $azurePath
-    Write-Host $containerName
-
 }
 
 .\azcopy.exe cp $sas $ls --recursive=true
 #  Rename-Item "$ls/$downloadName" "/$ls/$containerName"
 $downloadPath = "$ls\$downloadName"
 $containerPath = "$ls\$containerName"
+
+Write-Host "Renaming $downloadPath to $containerPath"
 Rename-Item -path $downloadPath -newName $containerPath
 
 Remove-Item "azcopy.exe"
