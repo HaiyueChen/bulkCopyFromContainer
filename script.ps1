@@ -1,7 +1,7 @@
 ##################################
 ##################################
-
-$sas = "<Insert SAS KEY>"
+# Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+$sas="https://we1dnvglpstgcus0000ep9eh.blob.core.windows.net/foofffffccb804b5-3b55-4392-8d52-dfb02801aa94?sv=2018-03-28&sr=c&sig=tAT2KhdIi39YfduFEx4qo0d%2Fw29PxZ7bYJ1TL0SEziI%3D&st=2019-07-02T07%3A58%3A51Z&se=2019-12-29T08%3A58%3A38Z&sp=rl"
 ##################################
 ##################################
 
@@ -132,6 +132,6 @@ Write-Host "`r`nYour container is downloaded to: $containerPath"
 Rename-Item -path $downloadPath -newName $containerPath
 
 Remove-Item "azcopy.exe"
-
+# Set-ExecutionPolicy -ExecutionPolicy Default -Scope CurrentUser
 Read-Host "`r`nPress enter to exit..."
 exit
