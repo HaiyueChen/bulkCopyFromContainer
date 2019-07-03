@@ -106,7 +106,7 @@ if ($userSelectDownloadLocation.equals("Y") -or $userSelectDownloadLocation.equa
 Write-Host "Downloading to " $downloadFolder
 Get-Azcopy $currentLocation
 
-$sas = "https://we1dnvglpstgcus0000ep9eh.blob.core.windows.net/foofffffccb804b5-3b55-4392-8d52-dfb02801aa94/someDir?sv=2018-03-28&sr=c&sig=tAT2KhdIi39YfduFEx4qo0d%2Fw29PxZ7bYJ1TL0SEziI%3D&st=2019-07-02T07%3A58%3A51Z&se=2019-12-29T08%3A58%3A38Z&sp=rl"
+$sas = "https://we1dnvglpstgcus0000ep9eh.blob.core.windows.net/foofffffccb804b5-3b55-4392-8d52-dfb02801aa94?sv=2018-03-28&sr=c&sig=aiVTocDTD5WrnPz4QY5ztrjnsWAGyQS8OMQVbU7bb6s%3D&st=2019-07-03T09%3A27%3A27Z&se=2019-07-03T11%3A28%3A47Z&sp=rwl"
 
 $azurePath = Get-Azure-Path-From-SAS $sas
 Write-Host "Azure Path: " $azurePath "`r`n"
